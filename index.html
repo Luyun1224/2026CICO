@@ -647,14 +647,22 @@ document.querySelectorAll(".rv").forEach(el=>io.observe(el));
 
 // scrollspy
 const secIds=["top","growth","scores","finding","voices"];
+const navlinks=document.getElementById("navlinks");
 const navmap={}; document.querySelectorAll(".nav a").forEach(a=>navmap[a.dataset.sec]=a);
-const spy=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){
+function setActiveNav(id){
+  const active=navmap[id];
+  if(!active || active.classList.contains("active")) return;
   Object.values(navmap).forEach(a=>a.classList.remove("active"));
-  const id=en.target.id==="top"?"top":en.target.id;
-  if(navmap[id]){ navmap[id].classList.add("active");
-    navmap[id].scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});}
+  active.classList.add("active");
+  if(navlinks){
+    const left=active.offsetLeft-(navlinks.clientWidth-active.offsetWidth)/2;
+    navlinks.scrollTo({left:Math.max(0,left),behavior:"smooth"});
+  }
+}
+const spy=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){
+  setActiveNav(en.target.id==="top"?"top":en.target.id);
 }}),{rootMargin:"-45% 0px -50% 0px"});
-["top","growth","scores","finding","voices"].forEach(id=>{const e=document.getElementById(id); if(e)spy.observe(e);});
+secIds.forEach(id=>{const e=document.getElementById(id); if(e)spy.observe(e);});
 
 window.addEventListener("load",()=>{
   document.querySelectorAll(".kpi .kv").forEach(countUp);
