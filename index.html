@@ -592,8 +592,12 @@ const cmp=[
  {qn:"Q2",name:"課後適應症認識",res:4.88,att:4.80,gap:-0.08},
 ];
 const cc=document.getElementById("cmpchart");
+function cmpWidth(v){
+  const scaled=((v-MIN)/(MAX-MIN))*100;
+  return Math.max(8, Math.min(100, scaled));
+}
 cmp.forEach(c=>{
-  const wr=(c.res/5)*100, wa=(c.att/5)*100;
+  const wr=cmpWidth(c.res), wa=cmpWidth(c.att);
   const gt=c.gap>0?`<span class="gaptag pos">主治高 +${c.gap.toFixed(2)}</span>`:`<span class="gaptag neg">住院高 +${Math.abs(c.gap).toFixed(2)}</span>`;
   const row=document.createElement("div"); row.className="cmprow";
   row.innerHTML=`<div class="cl"><span class="qn">${c.qn}</span>${c.name}${gt}</div>
