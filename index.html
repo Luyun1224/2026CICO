@@ -38,7 +38,7 @@ body{background:
 /* ---------- NAV ---------- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
-.nav .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:.98rem;white-space:nowrap;color:var(--ink)}
+.nav .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:clamp(.78rem,1.25vw,.98rem);white-space:nowrap;color:var(--ink);min-width:0;overflow:hidden;text-overflow:ellipsis}
 .nav .brand .mk{width:38px;height:32px;display:grid;place-items:center;flex:none}
 .nav .brand .mk img{display:block;max-width:100%;max-height:100%;object-fit:contain;filter:brightness(0) invert(1)}
 .nav .links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
@@ -50,15 +50,15 @@ body{background:
 .nav a .n{font-family:var(--disp);font-size:.72rem;color:var(--faint);margin-right:5px}
 
 /* ---------- HERO ---------- */
-.hero{min-height:100vh;padding:70px 0 64px;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(6,20,45,.84) 0%,rgba(8,27,59,.68) 45%,rgba(8,27,59,.36) 100%),var(--hero-photo) center/cover no-repeat;color:#fff;display:flex;align-items:center}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 20%,rgba(240,135,26,.12),transparent 16rem),radial-gradient(circle at 76% 18%,rgba(46,111,201,.28),transparent 28rem),linear-gradient(180deg,rgba(3,12,28,.08),rgba(3,12,28,.46));backdrop-filter:saturate(1.16) contrast(1.04);pointer-events:none}
+.hero{min-height:100vh;padding:70px 0 64px;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(6,20,45,.70) 0%,rgba(8,27,59,.50) 45%,rgba(8,27,59,.18) 100%),var(--hero-photo) center/cover no-repeat;color:#fff;display:flex;align-items:center}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 20%,rgba(240,135,26,.09),transparent 16rem),radial-gradient(circle at 76% 18%,rgba(46,111,201,.20),transparent 28rem),linear-gradient(180deg,rgba(3,12,28,.03),rgba(3,12,28,.28));backdrop-filter:saturate(1.08) contrast(1.02);pointer-events:none}
 .hero::after{content:"";position:absolute;right:-8vw;top:11vh;width:38vw;height:38vw;border-radius:44% 56% 70% 30% / 34% 48% 52% 66%;background:linear-gradient(135deg,rgba(46,111,201,.32),rgba(11,158,130,.16));filter:blur(.5px);pointer-events:none}
 .hero .wrap{position:relative;z-index:1}
 .hero .tagrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.72);
   border-radius:100px;padding:8px 18px;font-size:.82rem;color:#385474;box-shadow:var(--sh);margin-bottom:24px;backdrop-filter:blur(14px);font-weight:700}
 .hero .tagrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);flex:none}
 .hero .tagrow b{color:var(--ink);font-weight:900}
-h1.title{font-size:clamp(2.75rem,6.2vw,5.2rem);font-weight:900;line-height:1.05;letter-spacing:-.025em;margin-bottom:24px;max-width:1100px}
+h1.title{font-size:clamp(2.25rem,5vw,4.2rem);font-weight:900;line-height:1.12;letter-spacing:-.025em;margin-bottom:24px;max-width:900px}
 h1.title .o{color:var(--accent);text-shadow:0 8px 34px rgba(240,135,26,.22)}
 .hero .lede{font-size:clamp(1.06rem,1.75vw,1.28rem);color:#D8E6F7;max-width:900px;line-height:1.78}
 .hero .lede b{color:#fff;font-weight:700}
@@ -300,7 +300,7 @@ section .wrap{position:relative;z-index:1}
   <div class="wrap">
     <div class="tagrow"><span class="dot"></span><b>115.07.04（六）</b>&nbsp;09:00–12:00&nbsp;·&nbsp;教學大樓 4F 臨床技能中心</div>
     <div class="eyebrow" style="margin-bottom:16px">活動成果與數據報告</div>
-    <h1 class="title">困難呼吸道反應流程<br><span class="o">共創工作坊</span></h1>
+    <h1 class="title">困難呼吸道反應流程<br>共創工作坊</h1>
     <div class="hero-grid">
       <div class="hero-meta">
         <div class="faculty-line" aria-label="授課講師">
