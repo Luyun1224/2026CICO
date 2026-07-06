@@ -62,7 +62,8 @@ h1.title{font-size:clamp(3.25rem,8vw,6.6rem);font-weight:900;line-height:1.05;le
 h1.title .o{color:var(--accent);text-shadow:0 8px 34px rgba(240,135,26,.22)}
 .hero .lede{font-size:clamp(1.06rem,1.75vw,1.28rem);color:#D8E6F7;max-width:900px;line-height:1.78}
 .hero .lede b{color:#fff;font-weight:700}
-.credits{display:grid;grid-template-columns:1.25fr .9fr .9fr;gap:16px;margin-top:28px;max-width:1080px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:end;margin-top:28px;max-width:1300px}
+.credits{display:grid;grid-template-columns:1fr;gap:16px;margin-top:0;max-width:none}
 .credits span{background:rgba(255,255,255,.90);border:1px solid rgba(255,255,255,.28);border-radius:28px;padding:18px 20px;box-shadow:var(--sh);backdrop-filter:blur(16px);font-size:clamp(1rem,1.5vw,1.22rem);color:var(--ink);font-weight:700}
 .credits b{display:block;color:var(--accent-ink);font-size:.82rem;font-weight:900;letter-spacing:.08em;margin-bottom:4px}
 
@@ -79,6 +80,25 @@ h1.title .o{color:var(--accent);text-shadow:0 8px 34px rgba(240,135,26,.22)}
 
 /* KPI */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero-stat{min-height:118px;border-radius:28px;padding:22px 20px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);box-shadow:var(--sh);backdrop-filter:blur(18px);display:flex;flex-direction:column;justify-content:center;color:#fff}
+.hero-stat .hv{font-family:var(--disp);font-size:2.75rem;font-weight:700;line-height:1;color:#fff}
+.hero-stat .hl{font-size:.95rem;font-weight:800;margin-top:8px;color:#E8F1FF}
+.hero-stat .hn{font-size:.78rem;color:#BFD0E8;margin-top:2px}
+.hero-stat.green{background:rgba(11,158,130,.22);border-color:rgba(78,231,143,.42);box-shadow:inset 4px 0 0 #24D26B,var(--sh)}
+.hero-stat.green .hv{color:#4EE78F}
+.purpose-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:42px;padding-top:42px;border-top:1px solid rgba(255,255,255,.14)}
+.purpose-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:26px 28px;box-shadow:var(--sh);backdrop-filter:blur(16px)}
+.purpose-card .ico{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px}
+.purpose-card h3{font-size:1.15rem;font-weight:900;color:#fff;margin-bottom:10px}
+.purpose-card p{font-size:.94rem;line-height:1.75;color:#CBD8EA}
+.purpose-card b{font-weight:900}
+.purpose-card.gold .ico{background:rgba(240,135,26,.78);color:#FFE8B4}
+.purpose-card.gold b{color:#FFD76C}
+.purpose-card.blue .ico{background:rgba(46,111,201,.78);color:#CFE2FF}
+.purpose-card.blue b{color:#6FB7FF}
+.purpose-card.green .ico{background:rgba(11,158,130,.78);color:#C9FFF0}
+.purpose-card.green b{color:#4EE78F}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:var(--sh);
   position:relative;overflow:hidden;transition:.22s}
 .kpi:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
@@ -104,6 +124,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;letter-spacing:-.01em}
 .band .card{background:rgba(255,255,255,.94);border-color:rgba(255,255,255,.46)}
 .band .card h3,.band .card .cl,.band .card .lgd,.band .card .cap,.band .card .top{color:var(--ink)}
 .band .card .foot-note,.band .card .lab{color:var(--ink2)}
+.band .card .cap b,.band .card .rolegain .cap b{color:var(--ink)}
 
 /* pre/post slope */
 .slope{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px}
@@ -235,6 +256,8 @@ section .wrap{position:relative;z-index:1}
   .cmphead,.cmprow{grid-template-columns:170px 1fr 1fr;gap:12px}
 }
 @media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .purpose-grid{grid-template-columns:1fr}
   .credits{grid-template-columns:1fr}
   .kpis{grid-template-columns:1fr 1fr}
   .grid2{grid-template-columns:1fr}
@@ -287,14 +310,26 @@ section .wrap{position:relative;z-index:1}
 <div id="top"></div>
 <header class="hero">
   <div class="wrap">
-    <div class="tagrow"><span class="dot"></span><b>115.07.04（六）</b>&nbsp;09:00–12:00&nbsp;·&nbsp;教學大樓 4F 臨床技能中心&nbsp;·&nbsp;麻醉部</div>
+    <div class="tagrow"><span class="dot"></span><b>115.07.04（六）</b>&nbsp;09:00–12:00&nbsp;·&nbsp;教學大樓 4F 臨床技能中心</div>
     <div class="eyebrow" style="margin-bottom:16px">活動成果與數據報告</div>
     <h1 class="title">困難呼吸道反應流程<br><span class="o">共創工作坊</span></h1>
     <p class="lede">以 3D 環狀軟骨模具實作、院內困難插管反應流程討論與問卷資料為基礎，整理本次工作坊的<b>出席概況、學習成效、滿意度數據與後續行動建議</b>，作為對外呈現活動成果與推動流程優化的參考。</p>
-    <div class="credits">
-      <span><b>授課講師</b> 蔡長志主任 · 王嘉地主任 · 邱柏惟醫師</span>
-      <span><b>出席</b> 應到 14 · 實到 13</span>
-      <span><b>問卷回收</b> 13 份（100%）</span>
+    <div class="hero-grid">
+      <div class="credits">
+        <span><b>授課講師</b> 蔡長志主任 · 王嘉地主任 · 邱柏惟醫師</span>
+        <span><b>受訓人數</b> 應到 14 · 實到 13（出席率 93%）</span>
+        <span><b>問卷回收</b> 13 份（100%）</span>
+      </div>
+      <div class="hero-stats" aria-label="活動統計">
+        <div class="hero-stat"><div class="hv num">13</div><div class="hl">受訓人數</div><div class="hn">實到 / 應到 14</div></div>
+        <div class="hero-stat green"><div class="hv num">100%</div><div class="hl">問卷回收</div><div class="hn">13 / 13 份</div></div>
+      </div>
+    </div>
+
+    <div class="purpose-grid" aria-label="工作坊目的">
+      <div class="purpose-card gold"><div class="ico">⚡</div><h3>讓正確行動更容易發生</h3><p>課程設計聚焦在高壓 CICO 情境中，把關鍵步驟練到更直覺，讓<b>正確的行動</b>在時間壓力下也能被執行。</p></div>
+      <div class="purpose-card blue"><div class="ico">🧭</div><h3>共建院方困難插管流程</h3><p>透過分組討論與回饋盤點，凝聚院內啟動時機、角色分工與支援資源，形成可落地的<b>困難插管流程</b>。</p></div>
+      <div class="purpose-card green"><div class="ico">✦</div><h3>即興演練與情境應對</h3><p>以模擬情境與即興演練把技術、溝通與決策串起來，讓團隊在不確定場景中練習<b>快速協作</b>。</p></div>
     </div>
 
     <div class="timeline">
