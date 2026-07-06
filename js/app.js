@@ -114,4 +114,9 @@ secIds.forEach(id=>{const e=document.getElementById(id); if(e)spy.observe(e);});
 window.addEventListener("load",()=>{
   document.querySelectorAll(".kpi .kv").forEach(countUp);
   setTimeout(()=>document.querySelectorAll(".hero [data-w]").forEach(f=>f.style.width=f.dataset.w),250);
+
+  // Mobile browsers can occasionally miss the first IntersectionObserver callback
+  // after dynamic content is injected, which leaves sections at opacity:0.
+  // Reveal any remaining blocks as a safety net so feedback never appears blank.
+  setTimeout(()=>document.querySelectorAll(".rv:not(.in)").forEach(revealBlock),900);
 });
